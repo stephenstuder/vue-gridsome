@@ -85,6 +85,11 @@ header {
     padding: 0 var(--containerPadding);
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 header nav a {
     color: var(--white);
     text-decoration: none;
