@@ -6,5 +6,20 @@
 
 module.exports = {
     siteName: "Stephens Studer",
-    plugins: []
+    plugins: [
+        {
+            use: "@gridsome/source-filesystem",
+            options: {
+                path: "./src/posts/**/*.md",
+                typeName: "BlogPost",
+                remark: {}
+            }
+        }
+    ],
+    transformers: {
+        remark: {
+            externalLinksTarget: "_blank",
+            externalLinksRel: ["nofollow", "noopener", "noreferrer"]
+        }
+    }
 };
