@@ -1,33 +1,45 @@
 <template>
-    <body class="layout dark">
-        <header>
-            <strong>
-                <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-            </strong>
+    <body :class="{ light: mode === 'light', dark: mode === 'dark', 'dark oled': mode === 'oled' }">
+        <Header :siteName="$page.metadata.siteName" />
+        <ClientOnly>
+            <ThemeToggle @theme="theme" />
+        </ClientOnly>
+        <main class="layout">
+            <slot />
+        </main>
+        <footer>
+            <h3 class="fake-logo">OliverCSS</h3>
             <nav>
-                <g-link to="/">Home</g-link>
-                <g-link to="/about/">About</g-link>
-                <g-link to="/posts/">Blog</g-link>
+                <a href="/">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
             </nav>
-        </header>
-        <slot />
-        <latest-posts />
+            <p>© 2021 Stephen Studer</p>
+        </footer>
     </body>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <script>
-import LatestPosts from "../components/LatestPosts.vue";
+import Header from "@/components/Header";
+import ThemeToggle from "@/components/ThemeToggle";
+
 export default {
     components: {
-        LatestPosts
+        Header,
+        ThemeToggle
+    },
+    data() {
+        return {
+            mode: ""
+        };
+    },
+    methods: {
+        theme(theme) {
+            this.mode = theme;
+        }
+    },
+    updated() {
+        this.mode = window.localStorage.theme;
     }
 };
 </script>

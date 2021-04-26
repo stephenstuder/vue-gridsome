@@ -1,32 +1,55 @@
 <template>
     <Layout>
-        <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-        <g-image alt="Stephen Animated" src="~/assets/images/stephen.png" width="800" />
-
-        <h1>Hello, world!</h1>
-
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia
-            eos quod asperiores
-        </p>
-
-        <p class="home-links">
-            <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-            <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-        </p>
+        <section class="posts">
+            <PostList v-for="year in years" :key="year" :year="year" />
+        </section>
     </Layout>
 </template>
 
 <script>
+import PostList from "@/components/PostList";
 export default {
+    components: {
+        PostList
+    },
     metaInfo: {
-        title: "Hello, world!"
+        title: "Stephen Studer blog"
+    },
+    computed: {
+        years() {
+            const years = {};
+            const posts = this.$page.allPost.edges;
+            posts.map((post) => {
+                const year = post.node.date.split(" ")[2];
+                years[year] = "";
+            });
+            return Object.keys(years).sort((a, b) => {
+                return b - a;
+            });
+        }
     }
 };
 </script>
 
-<style>
-.home-links a {
-    margin-right: 1rem;
+<page-query>
+query {
+  metadata {
+    siteName
+    siteDescription
+  }
+  allPost(filter: { date: { gte: "2020" }}) {
+    totalCount
+    edges {
+      node {
+        id
+        title
+        timeToRead
+        description
+        date (format: "MMM D YYYY")
+        path
+      }
+    }
+
+  }
 }
-</style>
+</page-query>

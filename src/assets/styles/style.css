@@ -67,7 +67,6 @@ body {
     color: var(--textColor);
     font-weight: 400;
     line-height: 1.75;
-    min-height: 100vh;
 }
 
 header {
@@ -85,6 +84,15 @@ header {
     padding: 0 var(--containerPadding);
 }
 
+header nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+header nav a + a {
+    margin-left: 10px;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -94,13 +102,8 @@ a:hover {
     text-decoration: underline;
 }
 
-header nav a {
-    color: var(--white);
-    text-decoration: none;
-}
-
-header nav a + a {
-    margin-left: 10px;
+body {
+    min-height: 100vh;
 }
 
 footer {

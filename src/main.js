@@ -2,8 +2,9 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from "~/layouts/Default.vue";
-import "~/assets/normalize.css";
-import "~/assets/style.css";
+import "prismjs/themes/prism.css";
+import "../src/assets/styles/style.css";
+import "../src/assets/styles/normalize.css";
 
 export default function(Vue, { router, head, isClient }) {
     // Set default layout as a global component
