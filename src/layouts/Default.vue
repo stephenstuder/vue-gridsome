@@ -14,7 +14,7 @@
                 <a href="#">About</a>
                 <a href="#">Contact</a>
             </nav>
-            <p>© 2021 Stephen Studer</p>
+            <p>© 2021</p>
         </footer>
     </body>
 </template>

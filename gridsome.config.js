@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-    siteName: "Stephen Studer",
+    siteName: "Blog",
     siteUrl: "https://stephenstuder.com",
     siteDescription: "Stephen Studers portfolio website and blog.",
     plugins: [
