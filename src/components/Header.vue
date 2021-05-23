@@ -15,11 +15,12 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import ThemeToggle from "@/components/ThemeToggle.vue";
 export default {
     props: ["siteName"],
     components: {
-        ThemeToggle: () => import("@/components/ThemeToggle")
+        ThemeToggle
     }
 };
 </script>

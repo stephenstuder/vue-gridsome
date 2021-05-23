@@ -5,8 +5,8 @@
     </div>
 </template>
 
-<script>
-import PostItem from "./PostItem";
+<script lang="ts">
+import PostItem from "./PostItem.vue";
 
 export default {
     props: ["year"],

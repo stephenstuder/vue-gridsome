@@ -19,9 +19,9 @@
     </body>
 </template>
 
-<script>
-import Header from "@/components/Header";
-import ThemeToggle from "@/components/ThemeToggle";
+<script lang="ts">
+import Header from "@/components/Header.vue";
+import ThemeToggle from "@/components/ThemeToggle.vue";
 
 export default {
     components: {

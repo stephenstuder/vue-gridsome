@@ -6,8 +6,8 @@
     </Layout>
 </template>
 
-<script>
-import PostList from "@/components/PostList";
+<script lang="ts">
+import PostList from "@/components/PostList.vue";
 export default {
     components: {
         PostList
